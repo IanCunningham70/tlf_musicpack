@@ -81,11 +81,11 @@ start:
 
 						jmp keyscan2 */
 //----------------------------------------------------------------------------------------------------------------------------------------
-depackImage:
+depack_tune:
 						lda #$0b
 						sta screenoff
 
-						ldx PackedImage				// image number counter
+						ldx Packed_tune				// tune number counter
                         ldy Packed_Lo,x				// lo byte
                         lda Packed_Hi,x 			// hi byte
                         tax
@@ -123,7 +123,7 @@ titleIrq:
 .memblock "Decrunch Tables"
 screenoff:				.byte $00				// control $d011 screen mode
 
-PackedImage:			.byte $00				// which tune to depack ?
+Packed_tune:			.byte $00				// which tune to depack ?
 						.byte $ff
 
 Packed_Hi:				.byte >packed_tune01, >packed_tune02
